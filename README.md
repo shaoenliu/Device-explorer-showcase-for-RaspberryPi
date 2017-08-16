@@ -1,10 +1,10 @@
 # Device-explorer-showcase-for-RaspberryPi
-https://github.com/elalemanyo/raspberry-pi-kiosk-screen
-Because I am using the Epiphany browser in raspberrypi, so just go to 
+Because I am using the Epiphany browser in raspberrypi, so just go to the page 
 
-the page and find the Epiphany browser part and follow the orders. And 
+https://github.com/elalemanyo/raspberry-pi-kiosk-screenand find the Epiphany browser part and follow the orders. And 
 
 there are some part that need to be changed.
+
 For the code of
 ```
 sudo -u pi epiphany-browser -a -i --profile ~/.config [URL] --display=:0 &
