@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+
+<html>
+<style>body {
+    padding: 50px;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    color: deeppink;
+    background-size:220px 40px;
+    background-image: url("t.PNG");
+    background-repeat: no-repeat;
+    background-position: initial;
+    
+}
+
+    
+</style>
+    
+<head>
+
+    <meta charset="utf-8" />
+
+    <title>Socket.io</title>
+    <script src="bower_components/sweetalert/dist/sweetalert.min.js"></script>
+    <link rel="stylesheet" href="bower_components/sweetalert/dist/sweetalert.css">
+</head>
+
+ <a href='/style.css'></a>
+
+<body>
+
+    <h1>MISP BO</h1>
+
+
+    <script src="bower_components/socket.io-client/dist/socket.io.js"></script>
+    
+    
+   
+   
+    <p style="display:inline">DeviceID: </p>   <p id="demo1" style="display:inline">id</p>
+    <p></p>
+    <p style="display:inline" >Temperature: </p>   <p id="demo2" style="display:inline">temperature</p>
+    <p></p>
+    <p style="display:inline">Humidity: </p>    <p id="demo3" style="display:inline">humidity</p>
+    <p></p>
+    <p style="display:inline">Messages from DeviceExplorer: </p>    <p id="demo4" style="display:inline">null</p>
+    
+
+    <script>
+function launchFullScreen(element) {
+            if (element.requestFullScreen) {
+                element.requestFullScreen();
+            } else if (element.mozRequestFullScreen) {
+                element.mozRequestFullScreen();
+            } else if (element.webkitRequestFullScreen) {
+                element.webkitRequestFullScreen();
+            }
+        }
+        window.onload = function() {
+            launchFullScreen(document.documentElement);
+        }
+        var socket = io.connect('http://localhost:8080');
+        socket.on('message', function(message) {
+            
+            const data = JSON.parse(message);
+
+       document.getElementById("demo1").innerHTML =(data.deviceId); 
+       document.getElementById("demo2").innerHTML =(data.temperature);   
+       document.getElementById("demo3").innerHTML =(data.humidity);  
+      
+        })
+       socket.on('messagefromiot', function(message) {
+           const data1 = message;
+            document.getElementById("demo4").innerHTML =(data1);
+             swal({
+             title: data1,
+             type: "success",
+             timer:3000
+               });
+       })
+
+    </script>
+ 
+</body>
+
+</html>

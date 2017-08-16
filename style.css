@@ -1,0 +1,10 @@
+h1 {
+    padding: 50px;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    color: goldenrod;
+    background-size:220px 40px;
+    background-image: url("t.PNG");
+    background-repeat: no-repeat;
+    background-position: initial;
+    
+}
